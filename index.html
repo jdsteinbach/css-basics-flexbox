@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Flexbox | Little Known CSS Basics</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/custom.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="https://use.typekit.net/mys5clg.css">
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" id="vue">
+        <section>
+          <h1>Little Known <br />CSS Basics <em>Flexbox</em></h1>
+        </section>
+
+        <section data-background="https://secure.meetupstatic.com/photos/event/9/c/d/highres_476822509.jpeg"></section>
+
+        <section>
+          <section>
+            <h2>Flexbox: The Container</h2>
+          </section>
+
+          <section>
+            <h3><code>display: flex</code></h3>
+            <p class="xfragment">This element will use the <b>flexible box layout</b> method to size all its children.</p>
+            <h3 class="xfragment"><code>display: inline-flex</code></h3>
+            <p class="xfragment"><code>block</code> : <code>inline-block</code> :: <code>flex</code> : <code>inline-flex</code></p>
+          </section>
+
+          <section>
+            <ul>
+              <li><code>flex-direction</code></li>
+              <li><code>flex-wrap</code></li>
+              <li><code>flex-flow</code></li>
+              <li><code>justify-content</code></li>
+              <li><code>align-content</code></li>
+              <li><code>align-items</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>flex-direction</code></h3>
+            <p class="xfragment">Set the axis that flex properties work along</p>
+            <ul class="xfragment">
+              <li><code>row</code> &mdash; horizontal</li>
+              <li><code>column</code> &mdash; vertical</li>
+              <li class="xfragment"><code>row-reverse</code></li>
+              <li class="xfragment"><code>column-reverse</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <flex-container children="4" property="flex-direction"></flex-container>
+          </section>
+
+          <section>
+            <h3><code>flex-wrap</code></h3>
+            <p class="xfragment">Allow children to wrap inside the flex container</p>
+            <ul>
+              <li class="xfragment"><code>nowrap</code></li>
+              <li class="xfragment"><code>wrap</code></li>
+              <li class="xfragment"><code>wrap-reverse</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <flex-container children="8" property="flex-wrap"></flex-container>
+          </section>
+
+          <section>
+            <h3><code>flex-flow</code></h3>
+            <p class="xfragment">Shorthand for <code>flex-direction</code> &amp; <code>flex-wrap</code></p>
+            <ul>
+              <li class="xfragment"><code>row wrap</code></li>
+              <li class="xfragment"><code>column wrap-reverse</code></li>
+              <li class="xfragment"><code>row-reverse nowrap</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <flex-container children="6" property="flex-flow"></flex-container>
+          </section>
+
+          <section>
+            <h3><code>justify-content</code></h3>
+            <p class="xfragment">Distributes children along the "main" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>start</code></li>
+              <li class="xfragment"><code>end</code></li>
+              <li class="xfragment"><code>center</code></li>
+              <li class="xfragment"><code>left</code></li>
+              <li class="xfragment"><code>right</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>justify-content</code></h3>
+            <p class="xfragment">Distributes children along the "main" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>baseline</code></li>
+              <li class="xfragment"><code>first baseline</code></li>
+              <li class="xfragment"><code>last baseline</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>justify-content</code></h3>
+            <p class="xfragment">Distributes children along the "main" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>space-between</code></li>
+              <li class="xfragment"><code>space-around</code></li>
+              <li class="xfragment"><code>space-evenly</code></li>
+              <li class="xfragment"><code>stretch</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>justify-content</code></h3>
+            <p class="xfragment">Distributes children along the "main" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>safe</code></li>
+              <li class="xfragment"><code>unsafe</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <flex-container children="2" property="justify-content" child-override-property="flex" child-override-value="0 0 auto"></flex-container>
+          </section>
+
+          <section>
+            <h3><code>align-content</code></h3>
+            <p class="xfragment">Distributes children along the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>start</code></li>
+              <li class="xfragment"><code>end</code></li>
+              <li class="xfragment"><code>center</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>align-content</code></h3>
+            <p class="xfragment">Distributes children along the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>baseline</code></li>
+              <li class="xfragment"><code>first baseline</code></li>
+              <li class="xfragment"><code>last baseline</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>align-content</code></h3>
+            <p class="xfragment">Distributes children along the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>space-between</code></li>
+              <li class="xfragment"><code>space-around</code></li>
+              <li class="xfragment"><code>space-evenly</code></li>
+              <li class="xfragment"><code>stretch</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>align-content</code></h3>
+            <p class="xfragment">Distributes children along the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>safe</code></li>
+              <li class="xfragment"><code>unsafe</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <flex-container children="4" property="align-content"></flex-container>
+          </section>
+
+          <section>
+            <h3><code>align-items</code></h3>
+            <p class="xfragment">Aligns children on the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>start</code></li>
+              <li class="xfragment"><code>end</code></li>
+              <li class="xfragment"><code>center</code></li>
+              <li class="xfragment"><code>self-start</code></li>
+              <li class="xfragment"><code>self-end</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>align-items</code></h3>
+            <p class="xfragment">Aligns children on the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>baseline</code></li>
+              <li class="xfragment"><code>first baseline</code></li>
+              <li class="xfragment"><code>last baseline</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>align-items</code></h3>
+            <p class="xfragment">Aligns children on the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>space-between</code></li>
+              <li class="xfragment"><code>space-around</code></li>
+              <li class="xfragment"><code>space-evenly</code></li>
+              <li class="xfragment"><code>stretch</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>align-items</code></h3>
+            <p class="xfragment">Aligns children on the "cross" axis of the flex container</p>
+            <ul>
+              <li class="xfragment"><code>safe</code></li>
+              <li class="xfragment"><code>unsafe</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <flex-container children="4" property="align-items"></flex-container>
+          </section>
+        </section>
+
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            <li>MDN: <a rel="noreferrer noopener nofollow" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">Transition</a>, <a rel="noreferrer noopener nofollow" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">Animation</a></li>
+            <li>CSS-Tricks: <a rel="noreferrer noopener nofollow" target="_blank" href="https://css-tricks.com/almanac/properties/t/transition/">Transition</a>, <a rel="noreferrer noopener nofollow" target="_blank" href="https://css-tricks.com/almanac/properties/a/animation/">Animation</a></li>
+            <li>Talk: <a rel="noopener" target="_blank" href="https://jdsteinbach.com/css-animation/#/">Meaningful UI Animations</a></li>
+            <li>Courses: <a rel="noreferrer noopener nofollow" target="_blank" href="https://cssanimation.rocks/">CSS Animation</a></li>
+            <li>Book: <em><a rel="noreferrer noopener nofollow" target="_blank" href="https://abookapart.com/products/animation-at-work">Animation at Work</a></em></li>
+            <li>Course: <a rel="noreferrer noopener nofollow" target="_blank" href="http://rachelnabors.com/css-animations-course/">Web Animation Essentials</a></li>
+            <li>CSS Library: <a rel="noreferrer noopener nofollow" target="_blank" href="https://daneden.github.io/animate.css/">Animate.css</a></li>
+            <li>Examples: <a rel="noreferrer noopener nofollow" target="_blank" href="https://codepen.io/jdsteinbach/pen/MPybZE">Codepen</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>James Steinbach</h2>
+          <h3>Senior UX Developer<br /> at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a></h3>
+          <h2><code>jdsteinbach</code></h2>
+          <h3><a rel="noreferrer noopener nofollow" target="_blank" href="https://twitter.com">Twitter</a> | <a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/jdsteinbach">Github</a> | <a href="https://jdsteinbach.com">Blog</a></h3>
+        </section>
+      </div>
+
+      <a id="colophon" href="https://jdsteinbach.com/css-basics-flexbox">jds.li/flexbox</a>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="lib/js/tinycolor.min.js"></script>
+    <script src="lib/js/vue.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        width: 780,
+        transition: 'convex',
+        dependencies: [
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/zoom-js/zoom.js', async: true }
+        ]
+      });
+    </script>
+    <script>
+      Vue.use({
+        install: function(Vue, options) {
+          Object.defineProperty(Vue.prototype, 'uniqId', {
+            get: function uniqId() {
+              return this._uid;
+            }
+          });
+        }
+      });
+
+      Vue.component('flex-container', {
+        props: {
+          children: Number,
+          property: String,
+          containerValue: String,
+          childOverrideProperty: String,
+          childOverrideValue: String
+        },
+        methods: {
+          updateStyle: function(e) {
+            console.log(e)
+            this.containerValue = e.target.value
+          }
+        },
+        computed: {
+          currentContainerStyles: function() {
+            var styles = this.flexContainerStyles
+            styles[this.property] = this.containerValue
+            return styles
+          },
+          currentChildStyles: function() {
+            var styles = this.flexChildStyles
+            if (this.childOverrideProperty) {
+              styles[this.childOverrideProperty] = this.childOverrideValue
+            }
+            return styles
+          },
+          propertyOptions: function() {
+            return this.propertyValues[this.property]
+          },
+          childCount: function() {
+            var count = []
+            for (i = 0;i < this.children; i++) {
+              count.push(i+1)
+            }
+            return count
+          }
+        },
+        data: function() {
+          return {
+            children: '6',
+            property: 'flex-direction',
+            containerValue: 'initial',
+            childOverrideProperty: false,
+            childOverrideValue: '',
+            propertyValues: {
+              'flex-direction': [
+                'row',
+                'column',
+                'row-reverse',
+                'column-reverse'
+              ],
+              'flex-flow': [
+                'row wrap',
+                'column wrap',
+                'row-reverse wrap',
+                'column-reverse wrap',
+              ],
+              'flex-wrap': [
+                'wrap',
+                'nowrap',
+                'wrap-reverse'
+              ],
+              'justify-content': [
+                'start',
+                'end',
+                'center',
+                'flex-start',
+                'flex-end',
+                'left',
+                'right',
+                'normal',
+                'baseline',
+                'first baseline',
+                'last baseline',
+                'space-between',
+                'space-around',
+                'space-evenly',
+                'stretch'
+              ],
+              'align-content': [
+                'start',
+                'end',
+                'center',
+                'flex-start',
+                'flex-end',
+                'normal',
+                'baseline',
+                'first baseline',
+                'last baseline',
+                'space-between',
+                'space-around',
+                'space-evenly',
+                'stretch'
+              ],
+              'align-items': [
+                'start',
+                'end',
+                'center',
+                'flex-start',
+                'flex-end',
+                'self-start',
+                'self-end',
+                'normal',
+                'baseline',
+                'first baseline',
+                'last baseline'
+              ]
+            },
+            flexContainerStyles: {
+              display: 'flex',
+              margin: '2rem 2px 0',
+              padding: '2px',
+              height: '24rem',
+              border: '2px solid #eee'
+            },
+            flexChildStyles: {
+              display: 'block',
+              margin: 0,
+              padding: 0,
+              width: '200px',
+              height: '6rem',
+              background: 'linear-gradient(120deg, #444, #222)',
+              color: '#eee',
+              textAlign: 'center',
+              fontSize: '5rem',
+              fontWeight: 'bold',
+              lineHeight: '6rem',
+            },
+            labelStyles: {
+              display: 'block',
+              textAlign: 'center',
+              fontSize: '3rem'
+            },
+            selectStyles: {
+              padding: '.125em .5em',
+              border: '2px solid #222',
+              borderRadius: '.25em',
+              fontSize: '4rem'
+            },
+            optionStyles: {
+              fontSize: '4rem'
+            }
+          }
+        },
+        beforeMount () {
+          this.id = this._uid
+        },
+        template: '<div><label :for="id" :style="labelStyles">{{property}}</label><select :id="id" :style="selectStyles" v-model="containerValue" v-on:change="updateStyle"><option selected>initial</option><option v-for="prop in propertyOptions" :style="optionStyles">{{prop}}</option></select><ul class="flex-container" :style="currentContainerStyles"><li v-for="child in childCount" class="flex-child" :style="currentChildStyles">{{child}}</li></ul></div>'
+      });
+
+      Vue.component('css-editor', {
+        props: {
+          text: '',
+          singleProp: null,
+          existingCss: null
+        },
+        data: function() {
+          return {
+            css: '',
+            text: 'Here’s a block of text that we’re going to apply some great styles to!'
+          }
+        },
+        computed: {
+          labelClass: function() {
+            return this.singleProp
+              ? 'vue-label vue-label--property'
+              : 'hidden-label';
+          },
+          label: function() {
+            return this.singleProp || 'CSS Editor';
+          },
+          scopedClass: function() {
+            return 'scoped-css-' + this.uniqId;
+          },
+          scopedID: function() {
+            return 'ce-id-' + this.uniqId;
+          },
+          formattedCSS: function() {
+            var formattedCSS = this.singleProp
+              ? this.singleProp + ':' + this.css
+              : this.css;
+            return this.existingCss
+              ? [formattedCSS, this.existingCss].join(';')
+              : formattedCSS;
+          },
+          rows: function() {
+            return this.singleProp ? 1 : 3;
+          }
+        },
+        template: '<div><div class="vue-border"><label :class="labelClass" :for="scopedID">{{label}}</label><textarea class="ce-editor vue-input vue-textarea" :name="scopedID" :id="scopedID" :rows="rows" v-model="css"></textarea></div><div class="ce-text" :style="formattedCSS">{{text}}</div></div>',
+        beforeMount () {
+          this.id = this._uid
+        }
+      });
+
+      new Vue({el: '#vue'});
+    </script>
+  </body>
+</html>
