@@ -68,7 +68,7 @@
           </section>
 
           <section>
-            <flex-container children="4" property="flex-direction"></flex-container>
+            <flex-container children="4" property="flex-direction" />
           </section>
 
           <section>
@@ -82,7 +82,7 @@
           </section>
 
           <section>
-            <flex-container children="8" property="flex-wrap"></flex-container>
+            <flex-container children="8" property="flex-wrap" />
           </section>
 
           <section>
@@ -96,7 +96,7 @@
           </section>
 
           <section>
-            <flex-container children="6" property="flex-flow"></flex-container>
+            <flex-container children="6" property="flex-flow" />
           </section>
 
           <section>
@@ -142,7 +142,7 @@
           </section>
 
           <section>
-            <flex-container children="2" property="justify-content" child-override-property="flex" child-override-value="0 0 auto"></flex-container>
+            <flex-container children="2" property="justify-content" child-override-property="flex" child-override-value="0 0 auto" />
           </section>
 
           <section>
@@ -186,7 +186,7 @@
           </section>
 
           <section>
-            <flex-container children="4" property="align-content"></flex-container>
+            <flex-container children="8" property="align-content" override-wrap />
           </section>
 
           <section>
@@ -232,7 +232,165 @@
           </section>
 
           <section>
-            <flex-container children="4" property="align-items"></flex-container>
+            <flex-container children="4" property="align-items" />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Flexbox: The Children</h2>
+          </section>
+
+          <section>
+            <ul>
+              <li><code>flex-grow</code></li>
+              <li><code>flex-shrink</code></li>
+              <li><code>flex-basis</code></li>
+              <li><code>order</code></li>
+              <li><code>align-self</code></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3><code>flex-grow</code></h3>
+            <p class="xfragment">How much of the extra space on the main axis the element is allowed to take up</p>
+            <p class="xfragment">Relative to <code>flex-grow</code> of siblings</p>
+            <p class="xfragment">Values: <code>integer</code></p>
+          </section>
+
+          <section>
+            <h3><code>flex-shrink</code></h3>
+            <p class="xfragment">How much of the necessary shrinking on the main axis the element must do</p>
+            <p class="xfragment">Relative to <code>flex-shrink</code> of siblings</p>
+            <p class="xfragment">Values: <code>integer</code></p>
+          </section>
+
+          <section>
+            <h3><code>flex-basis</code></h3>
+            <p class="xfragment">How much space on the main axis the element takes up before growing or shrinking</p>
+            <p class="xfragment">Values: <code>length</code></p>
+            <p class="xfragment"><code>auto</code> means the element&rsquo;s width</p>
+          </section>
+
+          <section>
+            <h3><code>flex</code></h3>
+            <p class="xfragment">Shorthand:</p>
+            <p class="xfragment"><code>grow shrink basis</code></p>
+          </section>
+
+          <section>
+            <h3><code>order</code></h3>
+            <p class="xfragment">Change the element&rsquo;s location along hte main axis</p>
+            <p class="xfragment">Relative to <code>order</code> of all siblings</p>
+          </section>
+
+          <section>
+            <h3><code>align-self</code></h3>
+            <p class="xfragment">Allows the element to override its parent&rsquo;s <code>align-items</code> value</p>
+            <p class="xfragment">Value: any <code>align-items</code> value</p>
+          </section>
+
+          <section>
+            <flex-container interactive-children />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Use Cases</h2>
+          </section>
+
+          <section>
+            <h3>Perfect Centering</h3>
+            <pre class="xfragment"><code>.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Perfect Centering</h3>
+            <flex-container
+              hide-select
+              children="1"
+              property="justify-content"
+              value="center"
+              property-b="align-items"
+              value-b="center"
+            />
+          </section>
+
+          <section>
+            <h3>Global Grid Layout</h3>
+            <pre class="xfragment"><code>.parent {
+  display: flex;
+  justify-content: space-between;
+}
+.child {
+  /* 3 columns, 20px gap */
+  width: calc(33% - (20px * 2 / 3));
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Global Grid Layout</h3>
+            <flex-container
+              interactive-children
+              children="3"
+              property="justify-content"
+              value="space-between"
+              property-b="align-items"
+              value-b="stretch"
+              child-override-property="width"
+              child-override-value="calc(33% - (20px * 2 / 3))"
+            />
+          </section>
+
+          <section>
+            <h3>Equal-Height Grids</h3>
+            <pre class="xfragment"><code>.parent {
+  display: flex;
+  justify-content: space-between;
+}
+.child {
+  /* 3 columns, 20px gap */
+  width: calc(33% - (20px * 2 / 3));
+}</code></pre>
+          </section>
+
+          <section>
+            <h3>Equal-Height Grids</h3>
+            <flex-container
+              interactive-children
+              children="9"
+              property="justify-content"
+              value="space-between"
+              property-b="align-content"
+              value-b="start"
+              child-override-property="width"
+              child-override-value="calc(33% - (20px * 2 / 3))"
+              child-override-property-b="margin-bottom"
+              child-override-value-b="20px"
+            />
+          </section>
+
+          <section>
+            <h3>Other Flexbox Use Cases</h3>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:start">
+              <p style="margin:.5em"><a href="https://codepen.io/jdsteinbach/pen/PxryKE?editors=1100" target="_blank" rel="noopener">Accordion</a></p>
+              <p style="margin:.5em"><a href="https://codepen.io/jdsteinbach/pen/qQzJMq?editors=1100" target="_blank" rel="noopener">Subscribe</a></p>
+              <p style="margin:.5em"><a href="https://codepen.io/jdsteinbach/pen/VVJEEz?editors=1100" target="_blank" rel="noopener">Icons</a></p>
+              <p style="margin:.5em"><a href="https://codepen.io/jdsteinbach/pen/xQoyNg?editors=1100" target="_blank" rel="noopener">Header/Footer</a></p>
+              <p style="margin:.5em"><a href="https://codepen.io/jdsteinbach/pen/Pxrxoy?editors=1100" target="_blank" rel="noopener">Header Nav</a></p>
+              <p style="margin:.5em"><a href="https://codepen.io/jdsteinbach/pen/jQjQWN?editors=1100" target="_blank" rel="noopener">Quasi-Element Query</a></p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Flexbox vs. Grid</h3>
+            <p class="xfragment">Flexbox is 1-dimensional: it sets a main axis and provides controls for positioning elements along that axis.</p>
+            <p class="xfragment">Grid is 2-dimensional: it sets both block and inline axes and provides controls for positioning elements along either/both axes.</p>
           </section>
         </section>
 
@@ -298,28 +456,99 @@
 
       Vue.component('flex-container', {
         props: {
-          children: Number,
-          property: String,
-          containerValue: String,
-          childOverrideProperty: String,
-          childOverrideValue: String
+          children: {
+            type: Number,
+            default: 6
+          },
+          property: {
+            type: String,
+            default: ''
+          },
+          value: {
+            type: String,
+            default: 'initial'
+          },
+          childOverrideProperty: {
+            type: String,
+            default: ''
+          },
+          childOverrideValue: {
+            type: String,
+            default: ''
+          },
+          childOverridePropertyB: {
+            type: String,
+            default: ''
+          },
+          childOverrideValueB: {
+            type: String,
+            default: ''
+          },
+          childOverridePropertyC: {
+            type: String,
+            default: ''
+          },
+          childOverrideValueC: {
+            type: String,
+            default: ''
+          },
+          interactiveChildren: {
+            type: Boolean,
+            default: false
+          },
+          hideSelect: {
+            type: Boolean,
+            default: false
+          },
+          overrideWrap: {
+            type: Boolean,
+            default: false
+          },
+          propertyB: {
+            type: String,
+            default: ''
+          },
+          valueB: {
+            type: String,
+            default: ''
+          },
+          propertyC: {
+            type: String,
+            default: ''
+          },
+          valueC: {
+            type: String,
+            default: ''
+          }
         },
         methods: {
           updateStyle: function(e) {
-            console.log(e)
-            this.containerValue = e.target.value
+            this.value = e.target.value
           }
         },
         computed: {
           currentContainerStyles: function() {
             var styles = this.flexContainerStyles
-            styles[this.property] = this.containerValue
-            return styles
-          },
-          currentChildStyles: function() {
-            var styles = this.flexChildStyles
-            if (this.childOverrideProperty) {
-              styles[this.childOverrideProperty] = this.childOverrideValue
+            if (this.property && this.value) {
+              styles[this.property] = this.value
+            }
+            if (this.propertyB && this.valueB) {
+              styles[this.propertyB] = this.valueB
+            }
+            if (this.propertyC && this.valueC) {
+              styles[this.propertyC] = this.valueC
+            }
+            if (this.overrideWrap || this.interactiveChildren) {
+              styles.flexWrap = 'wrap'
+            }
+            if (this.interactiveChildren) {
+              styles.height = '32rem'
+              if ([this.property, this.propertyB].indexOf('justify-content') === -1) {
+                styles.justifyContent = 'center'
+              }
+              if ([this.property, this.propertyB].indexOf('align-items') === -1) {
+                styles.alignItems = 'center'
+              }
             }
             return styles
           },
@@ -332,15 +561,13 @@
               count.push(i+1)
             }
             return count
+          },
+          interactiveSelf: function() {
+            return !this.interactiveChildren && !this.hideSelect
           }
         },
         data: function() {
           return {
-            children: '6',
-            property: 'flex-direction',
-            containerValue: 'initial',
-            childOverrideProperty: false,
-            childOverrideValue: '',
             propertyValues: {
               'flex-direction': [
                 'row',
@@ -412,19 +639,6 @@
               height: '24rem',
               border: '2px solid #eee'
             },
-            flexChildStyles: {
-              display: 'block',
-              margin: 0,
-              padding: 0,
-              width: '200px',
-              height: '6rem',
-              background: 'linear-gradient(120deg, #444, #222)',
-              color: '#eee',
-              textAlign: 'center',
-              fontSize: '5rem',
-              fontWeight: 'bold',
-              lineHeight: '6rem',
-            },
             labelStyles: {
               display: 'block',
               textAlign: 'center',
@@ -434,7 +648,7 @@
               padding: '.125em .5em',
               border: '2px solid #222',
               borderRadius: '.25em',
-              fontSize: '4rem'
+              fontSize: '3rem'
             },
             optionStyles: {
               fontSize: '4rem'
@@ -444,53 +658,156 @@
         beforeMount () {
           this.id = this._uid
         },
-        template: '<div><label :for="id" :style="labelStyles">{{property}}</label><select :id="id" :style="selectStyles" v-model="containerValue" v-on:change="updateStyle"><option selected>initial</option><option v-for="prop in propertyOptions" :style="optionStyles">{{prop}}</option></select><ul class="flex-container" :style="currentContainerStyles"><li v-for="child in childCount" class="flex-child" :style="currentChildStyles">{{child}}</li></ul></div>'
+        template: '<div><div v-if="interactiveSelf"><label :for="id" :style="labelStyles">{{property}}</label><select :id="id" :style="selectStyles" v-model="value" v-on:change="updateStyle"><option selected>initial</option><option v-for="prop in propertyOptions" :style="optionStyles">{{prop}}</option></select></div><div class="flex-container" :style="currentContainerStyles"><flex-child v-for="child in childCount" :property="childOverrideProperty" :value="childOverrideValue" :property-b="childOverridePropertyB" :value-b="childOverrideValueB" :property-c="childOverridePropertyC" :value-c="childOverrideValueC" :iteration="child" :is-interactive="interactiveChildren"></flex-child></div></div>'
       });
 
-      Vue.component('css-editor', {
+      Vue.component('flex-child', {
         props: {
-          text: '',
-          singleProp: null,
-          existingCss: null
+          isInteractive: {
+            type: Boolean,
+            default: false
+          },
+          iteration: {
+            type: Number,
+            default: 1
+          },
+          property: {
+            type: String,
+            default: ''
+          },
+          value: {
+            type: String,
+            default: ''
+          },
+          propertyB: {
+            type: String,
+            default: ''
+          },
+          valueB: {
+            type: String,
+            default: ''
+          },
+          propertyC: {
+            type: String,
+            default: ''
+          },
+          valueC: {
+            type: String,
+            default: ''
+          }
         },
         data: function() {
           return {
-            css: '',
-            text: 'Here’s a block of text that we’re going to apply some great styles to!'
+            defaultStyles: {
+              display: 'block',
+              marginTop: 0,
+              marginRight: 0,
+              marginBottom: 0,
+              marginLeft: 0,
+              padding: '1rem 2rem .5rem',
+              width: '200px',
+              minHeight: '6rem',
+              background: 'linear-gradient(120deg, #444, #222)',
+              color: '#eee',
+              textAlign: 'center',
+              fontSize: '5rem',
+              fontWeight: 'bold',
+              lineHeight: '6rem',
+              position: 'relative',
+              boxSizing: 'border-box'
+            },
+            iteratorDefaultStyles: {
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              padding: '1rem .125em 0',
+              color: '#eee',
+              fontSize: '2rem',
+              lineHeight: 1,
+              textShadow: 'none',
+              opacity: .75
+            },
+            labelStyles: {
+              position: 'absolute',
+              height: 0,
+              width: 0,
+              overflow: 'hidden',
+              display: 'none'
+            },
+            inputStyles: {
+              fontSize: '1.5rem',
+              margin: '0 0 .5rem',
+              padding: 0,
+              display: 'block',
+              width: '100%'
+            },
+            allowedProperties: [
+              'flex',
+              'flex-grow',
+              'flex-shrink',
+              'flex-basis',
+              'align-self',
+              'order',
+              'margin-top',
+              'margin-left',
+              'margin-bottom',
+              'margin-right',
+              'height',
+              'width'
+            ]
           }
         },
         computed: {
-          labelClass: function() {
-            return this.singleProp
-              ? 'vue-label vue-label--property'
-              : 'hidden-label';
+          childStyles: function() {
+            var styles = this.defaultStyles
+            if (this.isInteractive) {
+              if (
+                this.property &&
+                this.allowedProperties.indexOf(this.property) > -1 &&
+                this.value
+              ) {
+                styles[this.property] = this.value
+              }
+              if (
+                this.propertyB &&
+                this.allowedProperties.indexOf(this.propertyB) > -1 &&
+                this.valueB
+              ) {
+                styles[this.propertyB] = this.valueB
+              }
+              if (
+                this.propertyC &&
+                this.allowedProperties.indexOf(this.propertyC) > -1 &&
+                this.valueC
+              ) {
+                styles[this.propertyC] = this.valueC
+              }
+            } else {
+              styles.padding = 0
+            }
+            return styles
           },
-          label: function() {
-            return this.singleProp || 'CSS Editor';
+          iteratorStyles: function() {
+            var styles = this.iteratorDefaultStyles
+            if (!this.isInteractive) {
+              styles.padding = 0
+              styles.position = 'static'
+              styles.lineHeight = '1'
+            }
+            return styles
           },
-          scopedClass: function() {
-            return 'scoped-css-' + this.uniqId;
+          propertyID: function() {
+            return 'p-' + this.id
           },
-          scopedID: function() {
-            return 'ce-id-' + this.uniqId;
-          },
-          formattedCSS: function() {
-            var formattedCSS = this.singleProp
-              ? this.singleProp + ':' + this.css
-              : this.css;
-            return this.existingCss
-              ? [formattedCSS, this.existingCss].join(';')
-              : formattedCSS;
-          },
-          rows: function() {
-            return this.singleProp ? 1 : 3;
+          valueID: function() {
+            return 'v-' + this.id
           }
         },
-        template: '<div><div class="vue-border"><label :class="labelClass" :for="scopedID">{{label}}</label><textarea class="ce-editor vue-input vue-textarea" :name="scopedID" :id="scopedID" :rows="rows" v-model="css"></textarea></div><div class="ce-text" :style="formattedCSS">{{text}}</div></div>',
         beforeMount () {
           this.id = this._uid
-        }
-      });
+        },
+        template: '<div :style="childStyles"><div v-if="isInteractive"><label :style="labelStyles" :for="propertyID">Property</label><input :style="inputStyles" placeholder="Property" :id="propertyID" type="text" v-model="property" /><label :style="labelStyles" :for="valueID">Value</label><input :style="inputStyles" placeholder="Value" :id="valueID" type="text" v-model="value" /></div><span :style="iteratorStyles">{{iteration}}</span></div>'
+      })
 
       new Vue({el: '#vue'});
     </script>
